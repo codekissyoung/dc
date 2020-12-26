@@ -1,11 +1,11 @@
 version: '2'
 services:
   web:
-    build: .
+    build: .              # 使用当前文件夹下的　Dockerfile 构建
     ports:
      - "5000:5000"
   redis:
-    image: "redis:alpine"
+    image: "redis:alpine" # 直接使用镜像构建 redis
   mariadb:
     image: 'bitnami/mariadb:latest'
     environment:
