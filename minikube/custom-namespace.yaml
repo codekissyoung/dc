@@ -1,3 +1,6 @@
+# 创建一个命名空间 :
+#    kubectl create -f custom-namespace.yaml
+# 后续所有资源的创建都可以通过 -n xys-dev 来指定命名空间
 apiVersion: v1
 kind: Namespace
 metadata:

@@ -1,9 +1,7 @@
-# 创建 Pod :
-#           kubectl create -f kubia-manual.yaml
-apiVersion: v1 # 使用的 k8s API 版本
+apiVersion: v1
 kind: Pod
 metadata:
-  name: kubia-manual-label # Pod 名称
+  name: kubia-liveness # Pod 名称
   labels: # 加上标签
     create_method: manual
     env: dev
@@ -11,6 +9,11 @@ spec:
   containers:
   - image: codekissyoung/kubia # 创建 Pod 使用的镜像
     name: kubia # 容器名称
+    livenessProbe:
+      httpGet:
+        path: /
+        port: 8080
+      initialDelaySeconds: 15 # 延迟探测时间
     ports:
     - containerPort: 8080 # 应用监听的端口
       protocol: TCP
