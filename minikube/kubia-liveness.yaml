@@ -8,8 +8,9 @@ metadata:
 spec:
   containers:
   - image: codekissyoung/kubia # 创建 Pod 使用的镜像
-    name: kubia # 容器名称
-    livenessProbe:
+    name: kubia                # 容器名称
+    # 假如探针检测失败，会重启该 Pod.　PS: 一次失败，将会再尝试检测几次
+    livenessProbe:             # http 存活探针检测
       httpGet:
         path: /
         port: 8080
