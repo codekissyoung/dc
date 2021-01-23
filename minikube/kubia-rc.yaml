@@ -5,11 +5,13 @@ metadata:
 spec:
   replicas: 2     # 副本个数
   selector:       # 标签选择器
-    app: kubia-rc # RC 确保符合本标签的 Pod 的个数只有 2 个
-  template:
+    # RC 确保符合本标签的 Pod 的个数只有 2 个
+    # 修改后，将会失去对 kubia-rc 标签Pod的管理
+    app: kubia-rc
+  template:       # Pod 的模板
     metadata:
       labels:
-        app: kubia-rc
+        app: kubia-rc # 模板 Pod 的标签
     spec:
       containers:
         - name : kubia
