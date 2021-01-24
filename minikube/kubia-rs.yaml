@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: kubia-rs
+  labels:
+    app: kubia-rs-test
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: kubia-rc
+  template:
+    metadata:
+      labels:
+        app: kubia-rc
+    spec:
+      containers:
+        - name: kubia
+          image: codekissyoung/kubia
