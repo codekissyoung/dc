@@ -1,9 +1,5 @@
-# 使用官方提供的Python开发镜像作为基础镜像
 FROM python:2.7-slim
-
-# 将工作目录切换为/app
 WORKDIR /app
-
 # 将当前目录下的所有内容复制到/app下
 ADD . /app
 
